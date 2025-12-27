@@ -35,7 +35,52 @@ class _SettingsScreenState extends State<SettingsScreen> {
           elevation: 0,
         ),
         backgroundColor: AppColors.background,
-        body: SettingsView(),
+        body: Stack(
+          children: [
+            SettingsView(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 15,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/grass2.png'),
+                    fit: BoxFit.fitHeight,
+                    repeat: ImageRepeat.repeatX,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 32,
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: AppColors.earth,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withAlpha(51),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                          ),
+                        ],
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '© 2025 thpir. All rights reserved. Application created by Thijs Pirmez',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: AppColors.onEarth,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
       ),
     );
   }
@@ -67,11 +112,12 @@ class SettingsView extends StatelessWidget {
                 ),
               ),
               GameSwitch(
-                value: selected, onChanged: (bool newValue) {
+                value: selected,
+                onChanged: (bool newValue) {
                   viewModel.mathFactsProvider.tablesSelection[table] = newValue;
                   viewModel.mathFactsProvider.filterTables();
                 },
-              )
+              ),
             ],
           ),
         );
@@ -89,13 +135,16 @@ class SettingsView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Selecteer de tafels die je wilt oefenen:',
-                      style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                            color: AppColors.onBackground,
-                            fontWeight: FontWeight.bold,
-                          )),
+                  Text(
+                    'Selecteer de tafels die je wilt oefenen:',
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      color: AppColors.onBackground,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 16),
-                  ...tableButtons()],
+                  ...tableButtons(),
+                ],
               ),
             ),
           ),

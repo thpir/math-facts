@@ -1,6 +1,8 @@
-# math_facts
+# Math facts (Tafel trainer)
 
 Math facts practice app.
+
+![Screenshot](screenshot.png)
 
 ## Data Model
 

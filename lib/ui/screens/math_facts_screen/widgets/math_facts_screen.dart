@@ -76,6 +76,47 @@ class _MathFactsScreenState extends State<MathFactsScreen> {
                           ? MathFactsView()
                           : CircularProgressIndicator(color: AppColors.accent),
                     ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: 15,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/grass.png'),
+                            fit: BoxFit.fitHeight,
+                            repeat: ImageRepeat.repeatX,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                bottomNavigationBar: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 32,
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: AppColors.earth,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withAlpha(51),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                          ),
+                        ],
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '© 2025 thpir. All rights reserved. Application created by Thijs Pirmez',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: AppColors.onEarth,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -95,9 +136,7 @@ class _MathFactsScreenState extends State<MathFactsScreen> {
 }
 
 class FeedbackOwl extends StatelessWidget {
-  const FeedbackOwl({
-    super.key,
-  });
+  const FeedbackOwl({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -110,16 +149,14 @@ class FeedbackOwl extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            if (viewModel.currentState ==
-                MathFactsState.solved) ...[
+            if (viewModel.currentState == MathFactsState.solved) ...[
               Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(12),
-                  ),
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
                 ),
                 alignment: Alignment.center,
                 width: 200,
@@ -132,11 +169,10 @@ class FeedbackOwl extends StatelessWidget {
                       ? 'Spijtig... het juiste antwoord was: ${viewModel.fact!.result}'
                       : 'Helemaal juist! Goed Gedaan!',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium!
-                      .copyWith(
-                        color: AppColors.onBackground,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: AppColors.onBackground,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               Padding(
@@ -146,15 +182,13 @@ class FeedbackOwl extends StatelessWidget {
                   child: Container(
                     width: 50,
                     height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
+                    decoration: BoxDecoration(color: Colors.white),
                   ),
                 ),
               ),
               SizedBox(width: 8),
             ],
-    
+
             Image.asset('assets/images/owl.png', height: 150),
           ],
         ),

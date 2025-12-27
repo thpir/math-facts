@@ -26,13 +26,14 @@ class _MainAppState extends State<MainApp> {
       child: Consumer<MathFactsProvider>(
         builder: (context, mathFactsProvider, _) {
           return MaterialApp(
-            title: 'Math Facts',
+            title: 'Tafel Trainer',
             theme: ThemeData(
               fontFamily: 'Fredoka',
               colorScheme: Theme.of(context).colorScheme.copyWith(
                 primary: AppColors.background
               ),
             ),
+            debugShowCheckedModeBanner: false,
             initialRoute: MathFactsScreen.routeName,
             routes: {
               MathFactsScreen.routeName: (context) => const MathFactsScreen(),
