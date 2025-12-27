@@ -44,7 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 height: 15,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/grass2.png'),
+                    image: AssetImage('assets/images/grass.png'),
                     fit: BoxFit.fitHeight,
                     repeat: ImageRepeat.repeatX,
                   ),
